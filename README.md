@@ -1,6 +1,6 @@
 # Erikas Secret
 
-Website f√r Erikas Secret Projekt mit Formular f√r Reservationen.
+Website f√ºr Erikas Secret Projekt mit Formular f√ºr Reservationen.
 
 ### Docker image bauen
 
