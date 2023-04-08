@@ -26,11 +26,18 @@ div.center {
     margin-right: auto;
 }
 
+label {
+    font-size: 15px;
+    font-weight: 500;
+}
+
 input[type="radio"] {
     width: 20px;
     margin: 3px 0 0;
     margin-top: 3px;
 }
+
+
 
 input[type="text"],
 input[type="email"] {
@@ -49,7 +56,9 @@ input[type="email"] {
 
 #submit {
     width: 100px;
-    box-shadow: 0 2px 1px #dddddd;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 1px 1px #dddddd;
 }
 
 .spacer {
