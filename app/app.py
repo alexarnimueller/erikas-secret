@@ -20,7 +20,7 @@ app.secret_key = os.getenv("SECRET_KEY", "verysecretkeyforflask")
 def index():
     form = ReservationForm()
     if request.method == "POST":
-        if not form.validate():
+        if not form.validate_on_submit():
             app.logger.info("contact form not validated")
         else:
             app.logger.info(
