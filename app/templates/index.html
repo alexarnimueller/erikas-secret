@@ -2,9 +2,10 @@
 <head>
 <title>Erikas</title>
 <meta name="description" content="Kollektiv Erikas - Burgers, Partys, Events - Zürich">
-<meta name="keywords" content="Erikas Diner, Erikas Pool Party, Erikas Sommerfest, Burgers&HipHop">
+<meta name="keywords" content="Erikas Diner, Erikas Pool Party, Erikas Bibimbap, Burgers&HipHop">
 <meta name="author" content="Kollektiv Erikas">
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='images/logo.gif') }}">
 <style>
 .bgblack {
     background-color: #0a0a0a
@@ -21,6 +22,30 @@
       	</td>
 	</tr>
 </tbody>
+<form action="{{ url_for('index') }}" method=post>
+    {{ form.hidden_tag() }}
+    {{ form.name.label }}
+    {{ form.name }}
+    {{ form.email.label }}
+    {{ form.email }}
+    {{ form.seats.label }}
+    {{ form.seats }}
+    {{ form.date.label }}
+    {{ form.date }}
+    {{ form.submit }}
+</form>
+{% for message in form.name.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+{% for message in form.email.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+{% for message in form.seats.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+{% for message in form.date.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
 </body>
 </html>
 
