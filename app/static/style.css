@@ -32,10 +32,6 @@ input[type="radio"] {
     margin-top: 1px;
 }
 
-label {
-    width: 60px;
-}
-
 input[type="text"],
 input[type="email"] {
     width: 100%;
@@ -51,12 +47,8 @@ input[type="email"] {
     border: 1px solid lightgray;
 }
 
-input:focus {
-    outline: none;
-}
-
-.submit {
-    width: 80px;
+#submit {
+    width: 100px;
     box-shadow: 0 2px 1px #dddddd;
 }
 
