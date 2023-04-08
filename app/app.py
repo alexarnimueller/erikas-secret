@@ -28,9 +28,9 @@ def index():
             app.logger.info(
                 f"contact form validated for {form.name.data} {form.seats.data} {form.email.data} {form.date.data}"
             )
-            msg = EmailMessage()
-            msg.set_content(
-                f"""Hoi {form.name.data}
+            content = f"""
+                Hoi {form.name.data}
+                
                 Danke für deine Anfrage. Wir werden dir deine Reservation innerhalb von 24h bestätigen,
                 sobald wir dich und deine Gäste im Sitzplan eingetragen haben.
 
@@ -40,22 +40,30 @@ def index():
                 Datum:  {form.date.data}
                 Zeit:   19:00
 
-
                 Fragen oder Änderungen?
                 erikasdiner@gmail.com
 
                 Bis bald
                 Erika
                 """
-            )
-            msg["Subject"] = "Reservationsanfrage Erikas Secret"
-            msg["From"] = sender_email
-            msg["To"] = form.email.data
+            subject = f"Reservationsanfrage Erikas Secret - {form.date.data} 19:00"
+            msg1 = EmailMessage()
+            msg1.set_content(content)
+            msg1["Subject"] = subject
+            msg1["From"] = sender_email
+            msg1["To"] = form.email.data
+
+            msg2 = EmailMessage()
+            msg2.set_content(f"Reservationsanfrage von {form.name.data}:\n\n" + content)
+            msg2["Subject"] = subject
+            msg2["From"] = sender_email
+            msg2["To"] = sender_email
 
             context = ssl.create_default_context()
             with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
                 server.login(sender_email, password)
-                server.send_message(msg, from_addr=sender_email, to_addrs=form.email.data)
+                server.send_message(msg1, from_addr=sender_email, to_addrs=form.email.data)
+                server.send_message(msg2, from_addr=sender_email, to_addrs=sender_email)
                 app.logger.info(f"email sent to {form.email.data}")
 
             return redirect(url_for("yum"))
