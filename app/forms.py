@@ -3,7 +3,7 @@
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, RadioField
-from wtforms.validators import Email, DataRequired, NumberRange
+from wtforms.validators import Email, DataRequired
 
 
 class ReservationForm(FlaskForm):
