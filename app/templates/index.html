@@ -28,10 +28,10 @@
 		<div class="center">
 			<table>
 				<tr>
-					<td>{{ form.name }}</td><td>{{ form.seats }}</td>
+					<td colspan="2">{{ form.name }}</td><td colspan="2">{{ form.seats }}</td>
 				</tr>
 				<tr>
-					<td colspan="2">{{ form.email }}</td>
+					<td colspan="4">{{ form.email }}</td>
 				</tr>
 			</table>
 
@@ -45,9 +45,7 @@
 				<tr>
 					<td stype="text-align: center;"><p>Jeweils um 19:00</p></td>
 					<td align="right">
-						<button name="btn-submit" type="submit"
-								onclick="alert('Reservation abgeschickt!\nDu erhältst von uns eine Bestätigung.')"
-								style="width:80px">OK
+						<button type="submit" style="width:80px">OK
 						</button>
 					</td>
 				</tr>
