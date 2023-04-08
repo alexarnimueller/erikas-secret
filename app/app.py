@@ -22,21 +22,15 @@ def index():
     form = ReservationForm()
     if request.method == "POST":
         if form.validate() == False:
-            flash("All fields are required.")
-            return render_template("index.html", form=form)
+            flash("Bitt Eingabe überprüfen!")
         else:
             msg = Message(form.subject.data, sender=os.getenv("MAIL_ADDR"), recipients=[form.email.data])
-            msg.body = """ 
-                To: %s <%s> 
+            msg.body = f""" 
+                To: {form.name.data} <{form.email.data}> 
                 Hallihallo 
-            """ % (
-                form.name.data,
-                form.email.data,
-            )
+            """
             mail.send(msg)
             flash("Reservationsanfrage erhalten! Wir melden uns bei dir.")
-            form = ReservationForm()
-            return render_template("index.html", form=form)
 
     return render_template("index.html", form=form)
 

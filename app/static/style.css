@@ -32,7 +32,7 @@ input[type="checkbox"] {
     margin-top: 1px;
 }
 
-input[type="checkbox"] {
+input[type="number"] {
     width: 100%;
 }
 
@@ -51,8 +51,7 @@ input[type="email"] {
     border: 1px solid lightgray;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus {
+input:focus {
     outline: none;
 }
 
