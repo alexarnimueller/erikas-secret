@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, RadioField
+from wtforms import StringField, SubmitField, RadioField, IntegerField
 from wtforms.validators import Email, DataRequired, NumberRange
 
 
@@ -15,7 +15,7 @@ class ReservationForm(FlaskForm):
         validators=[DataRequired(message="Bitte gib eine gültige Email Adresse ein."), Email()],
         render_kw={"placeholder": "Email"},
     )
-    seats = StringField(
+    seats = IntegerField(
         "Plätze",
         validators=[
             DataRequired(message="Bitte gib die Anzahl Plätze ein."),
