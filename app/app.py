@@ -21,7 +21,9 @@ def index():
     form = ReservationForm()
     if request.method == "POST":
         if not form.validate_on_submit():
-            app.logger.info("contact form not validated")
+            app.logger.info(
+                f"contact form not validated for {form.name.data} {form.seats.data} {form.email.data} {form.date.data}"
+            )
         else:
             app.logger.info(
                 f"contact form validated for {form.name.data} {form.seats.data} {form.email.data} {form.date.data}"
