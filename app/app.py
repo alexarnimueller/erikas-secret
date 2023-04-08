@@ -29,22 +29,22 @@ def index():
                 f"contact form validated for {form.name.data} {form.seats.data} {form.email.data} {form.date.data}"
             )
             content = f"""
-                Hoi {form.name.data}
-                
-                Danke für deine Anfrage. Wir werden dir deine Reservation innerhalb von 24h bestätigen,
-                sobald wir dich und deine Gäste im Sitzplan eingetragen haben.
+    Hoi {form.name.data}
+    
+    Danke für deine Anfrage. Wir werden dir deine Reservation innerhalb von 24h bestätigen,
+    sobald wir dich und deine Gäste im Sitzplan eingetragen haben.
 
-                Name:   {form.name.data}
-                Plätze: {form.seats.data}
-                E-Mail: {form.email.data}
-                Datum:  {form.date.data}
-                Zeit:   19:00
+    Name:   {form.name.data}
+    Plätze: {form.seats.data}
+    E-Mail: {form.email.data}
+    Datum:  {form.date.data}
+    Zeit:   19:00
 
-                Fragen oder Änderungen?
-                erikasdiner@gmail.com
+    Fragen oder Änderungen?
+    erikasdiner@gmail.com
 
-                Bis bald
-                Erika
+    Bis bald
+    Erika
                 """
             subject = f"Reservationsanfrage Erikas Secret - {form.date.data} 19:00"
             msg1 = EmailMessage()
