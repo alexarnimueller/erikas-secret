@@ -15,15 +15,16 @@
 <body class="bgblack">
 	
 	<div class="container">
-		
-		<div class="spacer"></div>
-	
-		<div class="center"><img src="{{ url_for('static', filename='images/logo.gif') }}" alt=""/></div>
-	
-		<div class="center">
+			
+	<div class="spacer"></div>
+
+	<div class="center"><img src="{{ url_for('static', filename='images/logo.gif') }}" alt=""/></div>
+
+	<div class="center">
+		<form action="{{ url_for('index') }}" method="post" >
 			<table>
 				<tr>
-					<td style="width:350px;">{{ form.name }}</td><td>{{ form.seats }}</td>
+					<td style="width:300px;">{{ form.name }}</td><td>{{ form.seats }}</td>
 				</tr>
 				<tr>
 					<td colspan="2">{{ form.email }}</td>
@@ -66,6 +67,5 @@
 			</table>
 		</form>
 	</div>
-</div>
 </body>
 </html>
