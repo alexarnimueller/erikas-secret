@@ -23,20 +23,20 @@
 		<div class="center">
 			<table>
 				<tr>
-					<td colspan="6">{{ form.name }}</td><td colspan="2">{{ form.seats }}</td>
+					<td style="width: 350px;">{{ form.name }}</td><td style="width: 150px;">{{ form.seats }}</td>
 				</tr>
 				<tr>
-					<td colspan="8">{{ form.email }}</td>
+					<td style="width: 500px;">{{ form.email }}</td>
 				</tr>
 				<tr>
 					{% for day in form.date %}
-						<td colspan="1">{{ day }}</td>
-						<td colspan="1">{{ day.label }}</td>
+						<td style="width: 45px;">{{ day }}</td>
+						<td style="width: 80px;">{{ day.label }}</td>
 					{% endfor %}
 				</tr>
 				<tr>
-					<td colspan="6"><p>Jeweils um 19:00</p></td>
-					<td colspan="2" align="right">
+					<td style="width: 350px;"><p>Jeweils um 19:00</p></td>
+					<td style="width: 150px;" align="right">
 						<button type="submit" style="width:80px">OK</button>
 					</td>
 				</tr>
