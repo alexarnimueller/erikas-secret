@@ -7,9 +7,13 @@ from wtforms.validators import Email, DataRequired, NumberRange
 
 
 class ReservationForm(FlaskForm):
-    name = StringField("Name", validators=[DataRequired(message="Bitte gib deinen Namen ein.")])
+    name = StringField(
+        "Name", validators=[DataRequired(message="Bitte gib deinen Namen ein.")], render_kw={"placeholder": "Name"}
+    )
     email = StringField(
-        "Email", validators=[DataRequired(message="Bitte gib eine gültige Email Adresse ein."), Email()]
+        "Email",
+        validators=[DataRequired(message="Bitte gib eine gültige Email Adresse ein."), Email()],
+        render_kw={"placeholder": "Email"},
     )
     seats = StringField(
         "Plätze",
@@ -17,6 +21,7 @@ class ReservationForm(FlaskForm):
             DataRequired(message="Bitte gib die Anzahl Plätze ein."),
             NumberRange(1, 10, message="Maximal 10 Plätze pro Person möglich."),
         ],
+        render_kw={"placeholder": "Plätze"},
     )
     date = RadioField(
         "Datum",

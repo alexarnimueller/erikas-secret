@@ -1,51 +1,84 @@
 <!DOCTYPE html>
+<html lang="de">
 <head>
-<title>Erikas</title>
-<meta name="description" content="Kollektiv Erikas - Burgers, Partys, Events - Zürich">
-<meta name="keywords" content="Erikas Diner, Erikas Pool Party, Erikas Bibimbap, Burgers&HipHop">
-<meta name="author" content="Kollektiv Erikas">
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='images/logo.gif') }}">
-<style>
-.bgblack {
-    background-color: #0a0a0a
-}
-</style>
+	<title>Erikas</title>
+	<meta name="description" content="Kollektiv Erikas - Burgers, Partys, Events - Zürich">
+	<meta name="keywords" content="Erikas Diner, Erikas Pool Party, Erikas Bibimbap, Burgers&HipHop">
+	<meta name="author" content="Kollektiv Erikas">
+	<meta name="viewport" content="width=device-width, initial-scale=0.75">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='images/logo.gif') }}">
+	<style>
+	.bgblack {
+		background-color: #0a0a0a
+	}
+	</style>
 </head>
 
 <body class="bgblack">
-<table itemscope itemtype = "http://schema.org/Thing" align="center" text-align="center">
-<tbody>
-    <tr>
-    	<td align="middle">
-		<img src="{{ url_for('static', filename='images/logo.gif') }}" alt=""/>
-      	</td>
-	</tr>
-</tbody>
-<form action="{{ url_for('index') }}" method=post>
-    {{ form.hidden_tag() }}
-    {{ form.name.label }}
-    {{ form.name }}
-    {{ form.email.label }}
-    {{ form.email }}
-    {{ form.seats.label }}
-    {{ form.seats }}
-    {{ form.date.label }}
-    {{ form.date }}
-    {{ form.submit }}
-</form>
-{% for message in form.name.errors %}
-  <div class="flash">{{ message }}</div>
-{% endfor %}
-{% for message in form.email.errors %}
-  <div class="flash">{{ message }}</div>
-{% endfor %}
-{% for message in form.seats.errors %}
-  <div class="flash">{{ message }}</div>
-{% endfor %}
-{% for message in form.date.errors %}
-  <div class="flash">{{ message }}</div>
-{% endfor %}
+	
+	<div class="container">
+		
+		<div class="spacer"></div>
+	
+		<div class="center" style="text-align: center"><img src="{{ url_for('static', filename='images/logo.gif') }}" alt=""/></div>
+	
+		<div class="center">
+			<table>
+				<tr>
+					<td>{{ form.name }}</td>
+					<td>{{ form.seats }}</td>
+				</tr>
+				<tr>
+					<td colspan="2">{{ form.email }}</td>
+				</tr>
+			</table>
+
+			<table>
+				<tr>
+					<td><input class="checkbox" name="date1" id="date1" type="checkbox" value="16.3.">
+						<label for="date1">16.3.</label></td>
+					<td><input class="checkbox" name="date2" id="date2" type="checkbox" value="17.3."> 17.3.</td>
+					<td><input class="checkbox" name="date3" id="date3" type="checkbox" value="23.3."> 23.3.</td>
+					<td align="center"><input name="date4" id="date4" type="checkbox" value="24.3."> 24.3.
+					</td>
+				</tr>
+				<tr>
+					<td><input class="checkbox" name="time1" id="time1" type="checkbox" value="19-21"> 19 - 21</td>
+					<td><input class="checkbox" name="time2" id="time2" type="checkbox" value="21-01"> 21 - 01</td>
+					<td><input class="checkbox" name="time3" id="time3" type="checkbox" value="19-01"> 19 - 01</td>
+					<td align="right">
+						<button name="btn-submit" type="submit"
+								onclick="alert('Reservation abgeschickt!\nDu erhältst von uns eine Bestätigung.')"
+								style="width:80px">OK
+						</button>
+					</td>
+				</tr>
+				<tr>
+					{% for message in form.name.errors %}
+						<div class="flash">{{ message }}</div>
+					{% endfor %}
+				</tr>
+				<tr>
+					{% for message in form.email.errors %}
+						<div class="flash">{{ message }}</div>
+					{% endfor %}
+				</tr>
+				<tr>
+					{% for message in form.seats.errors %}
+						<div class="flash">{{ message }}</div>
+					{% endfor %}
+				</tr>
+				<tr>
+					{% for message in form.date.errors %}
+						<div class="flash">{{ message }}</div>
+					{% endfor %}
+				</tr>	
+			</table>
+		</form>
+	</div>
+</div>
 </body>
 </html>
-
