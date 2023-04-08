@@ -10,31 +10,29 @@ html {
 }
 
 table {
-    width: 400px;
+    width: 600px;
 }
 
 img {
     margin: 0 auto;
-    width: 500px;
+    width: 600px;
 }
 
 div.center {
-    display: grid;
-    place-items: center;
     text-align: center;
-    width: 500px;
+    width: 600px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-input[type="checkbox"] {
-    margin: 2px 0 0;
-    margin-top: 1px;
+input #date {
+    margin-top: 2px;
+    width: 100%;
 }
 
-input[type="text"],
-input[type="email"] {
+input #name,
+input #email {
     width: 100%;
     font-size: 14px;
     font-weight: 500;
@@ -46,11 +44,6 @@ input[type="email"] {
     padding: 3px;
     border-radius: 4px;
     border: 1px solid lightgray;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus {
-    outline: none;
 }
 
 button {
