@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, redirect, url_for
 from forms import ReservationForm
 import smtplib
 import ssl
@@ -20,14 +20,28 @@ app.secret_key = os.getenv("SECRET_KEY", "verysecretkeyforflask")
 def index():
     form = ReservationForm()
     if request.method == "POST":
-        if form.validate() == False:
+        if not form.validate():
             app.logger.info("contact form not validated")
-            flash("Bitt Eingabe überprüfen!")
         else:
             app.logger.info("contact form validated")
             msg = EmailMessage()
             msg.set_content(
-                f"Hallo {form.name.data},\n\nwir haben deine Anfrage erhalten und werden uns bald bei dir melden!\n\nGruss, Erikas Secret"
+                f"""Hoi {form.name.data}
+                Danke für deine Anfrage. Wir werden dir deine Reservation innerhalb von 24h bestätigen, sobald wir dich und deine Gäste im Sitzplan eingetragen haben.
+
+                Name:   {form.name.data}
+                Plätze: {form.seats.data}
+                E-Mail: {form.email.data}
+                Datum:  {form.date.data}
+                Zeit:   19:00
+
+
+                Fragen oder Änderungen?
+                erikasdiner@gmail.com
+
+                Bis bald
+                Erika
+                """
             )
             msg["Subject"] = "Reservationsanfrage Erikas Secret"
             msg["From"] = sender_email
@@ -39,9 +53,14 @@ def index():
                 server.send_message(msg, from_addr=sender_email, to_addrs=form.email.data)
                 app.logger.info(f"email sent to {form.email.data}")
 
-            flash("Reservationsanfrage erhalten! Wir melden uns bei dir.")
+            return redirect(url_for("yum"))
 
     return render_template("index.html", form=form)
+
+
+@app.route("/yum", methods=["GET"])
+def yum():
+    return render_template("yum.html")
 
 
 if __name__ == "__main__":
