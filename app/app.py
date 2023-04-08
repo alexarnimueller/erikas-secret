@@ -23,11 +23,14 @@ def index():
         if not form.validate():
             app.logger.info("contact form not validated")
         else:
-            app.logger.info("contact form validated")
+            app.logger.info(
+                f"contact form validated for {form.name.data} {form.seats.data} {form.email.data} {form.date.data}"
+            )
             msg = EmailMessage()
             msg.set_content(
                 f"""Hoi {form.name.data}
-                Danke für deine Anfrage. Wir werden dir deine Reservation innerhalb von 24h bestätigen, sobald wir dich und deine Gäste im Sitzplan eingetragen haben.
+                Danke für deine Anfrage. Wir werden dir deine Reservation innerhalb von 24h bestätigen,
+                sobald wir dich und deine Gäste im Sitzplan eingetragen haben.
 
                 Name:   {form.name.data}
                 Plätze: {form.seats.data}
