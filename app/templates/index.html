@@ -33,13 +33,12 @@
 			<table>
 				<tr>
 					{% for day in form.date %}
-						<td>{{ day }}</td>
-						<td align="left">{{ day.label }}</td>
+						<td>{{ day }} {{ day.label }}</td>
 					{% endfor %}
 				</tr>
 				<tr>
-					<td colspan="6" style="width:100%"><p>Jeweils um 19:00</p></td>
-					<td colspan="2" align="right">{{ form.submit }}
+					<td colspan="3" style="width:100%"><p>Jeweils um 19:00</p></td>
+					<td align="right">{{ form.submit }}
 					</td>
 				</tr>
 			</table>
