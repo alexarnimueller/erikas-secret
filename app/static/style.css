@@ -32,10 +32,6 @@ input[type="checkbox"] {
     margin-top: 1px;
 }
 
-input[type="number"] {
-    width: 100%;
-}
-
 input[type="text"],
 input[type="email"] {
     width: 100%;
