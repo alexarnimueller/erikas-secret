@@ -12,16 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
-
 {% block body %}
 <body class="bgblack">
 	
@@ -53,28 +43,15 @@
 					</td>
 				</tr>
 			</table>
-			<table>
-				<tr>
-					{% for message in form.name.errors %}
-						<div class="flash">{{ message }}</div>
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul class=flashes>
+					{% for message in messages %}
+					<li>{{ message }}</li>
 					{% endfor %}
-				</tr>
-				<tr>
-					{% for message in form.email.errors %}
-						<div class="flash">{{ message }}</div>
-					{% endfor %}
-				</tr>
-				<tr>
-					{% for message in form.seats.errors %}
-						<div class="flash">{{ message }}</div>
-					{% endfor %}
-				</tr>
-				<tr>
-					{% for message in form.date.errors %}
-						<div class="flash">{{ message }}</div>
-					{% endfor %}
-				</tr>	
-			</table>
+					</ul>
+				{% endif %}
+			{% endwith %}
 		</form>
 	</div>
 </body>
