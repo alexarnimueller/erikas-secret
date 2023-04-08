@@ -19,6 +19,7 @@ img {
 }
 
 div.center {
+    text-align: center;
     width: 400px;
     display: block;
     margin-left: auto;

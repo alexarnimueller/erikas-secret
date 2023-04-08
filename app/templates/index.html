@@ -23,13 +23,12 @@
 		
 		<div class="spacer"></div>
 	
-		<div class="center" style="text-align: center"><img src="{{ url_for('static', filename='images/logo.gif') }}" alt=""/></div>
+		<div class="center"><img src="{{ url_for('static', filename='images/logo.gif') }}" alt=""/></div>
 	
 		<div class="center">
 			<table>
 				<tr>
-					<td>{{ form.name }}</td>
-					<td>{{ form.seats }}</td>
+					<td>{{ form.name }}</td><td>{{ form.seats }}</td>
 				</tr>
 				<tr>
 					<td colspan="2">{{ form.email }}</td>
