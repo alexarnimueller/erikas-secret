@@ -23,6 +23,5 @@ class ReservationForm(FlaskForm):
     date = RadioField(
         "Datum",
         choices=[("26.4.", "26.4."), ("27.4.", "27.4."), ("3.5.", "3.5."), ("4.5.", "4.5.")],
-        validators=[DataRequired(message="Bitte wähle ein Datum aus.")],
     )
     submit = SubmitField("OK")
