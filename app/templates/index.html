@@ -37,17 +37,13 @@
 
 			<table>
 				<tr>
-					<td><input class="checkbox" name="date1" id="date1" type="checkbox" value="16.3.">
-						<label for="date1">16.3.</label></td>
-					<td><input class="checkbox" name="date2" id="date2" type="checkbox" value="17.3."> 17.3.</td>
-					<td><input class="checkbox" name="date3" id="date3" type="checkbox" value="23.3."> 23.3.</td>
-					<td align="center"><input name="date4" id="date4" type="checkbox" value="24.3."> 24.3.
-					</td>
+					{% for day in form.date %}
+						<td>{{ day }}</td>
+						<td>{{ day.label }}</td>
+					{% endfor %}
 				</tr>
 				<tr>
-					<td><input class="checkbox" name="time1" id="time1" type="checkbox" value="19-21"> 19 - 21</td>
-					<td><input class="checkbox" name="time2" id="time2" type="checkbox" value="21-01"> 21 - 01</td>
-					<td><input class="checkbox" name="time3" id="time3" type="checkbox" value="19-01"> 19 - 01</td>
+					<td stype="text-align: center;"><p>Jeweils um 19:00</p></td>
 					<td align="right">
 						<button name="btn-submit" type="submit"
 								onclick="alert('Reservation abgeschickt!\nDu erhältst von uns eine Bestätigung.')"
