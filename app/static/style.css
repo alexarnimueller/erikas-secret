@@ -15,14 +15,14 @@ table {
 
 img {
     margin: 0 auto;
-    width: 300px;
+    width: 500px;
 }
 
 div.center {
     display: grid;
     place-items: center;
     text-align: center;
-    width: 400px;
+    width: 500px;
     display: block;
     margin-left: auto;
     margin-right: auto;
