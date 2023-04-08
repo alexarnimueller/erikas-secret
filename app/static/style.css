@@ -67,3 +67,10 @@ input[type="email"] {
 .spacer {
     height: 100px;
 }
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
