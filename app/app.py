@@ -3,7 +3,10 @@ from flask import Flask, render_template, request, flash
 from forms import ReservationForm
 import smtplib
 import ssl
+import logging
 from email.message import EmailMessage
+
+logger = logging.getLogger(__file__)
 
 port = os.getenv("MAIL_PORT")
 smtp_server = os.getenv("MAIL_SERV")
@@ -20,8 +23,10 @@ def index():
     form = ReservationForm()
     if request.method == "POST":
         if form.validate() == False:
+            logging.info("form not validated")
             flash("Bitt Eingabe überprüfen!")
         else:
+            logging.info("form validated")
             msg = EmailMessage()
             msg.set_content(
                 f"Hallo {form.name.data},\n\nwir haben deine Anfrage erhalten und werden uns bald bei dir melden!\n\nGruss, Erikas Secret"
@@ -34,6 +39,7 @@ def index():
             with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
                 server.login(sender_email, password)
                 server.send_message(msg, from_addr=sender_email, to_addrs=form.email.data)
+                logging.info(f"email sent to {form.email.data}")
 
             flash("Reservationsanfrage erhalten! Wir melden uns bei dir.")
 
