@@ -17,14 +17,13 @@ mail.init_app(app)
 
 
 @app.route("/", methods=["GET", "POST"])
-@app.route("/home", methods=["GET", "POST"])
 @app.route("/index", methods=["GET", "POST"])
-def home():
+def index():
     form = ReservationForm()
     if request.method == "POST":
         if form.validate() == False:
             flash("All fields are required.")
-            return render_template("contact.html", form=form)
+            return render_template("index.html", form=form)
         else:
             msg = Message(form.subject.data, sender=os.getenv("MAIL_ADDR"), recipients=[form.email.data])
             msg.body = """ 
@@ -37,7 +36,7 @@ def home():
             mail.send(msg)
             flash("Reservationsanfrage erhalten! Wir melden uns bei dir.")
             form = ReservationForm()
-            return render_template("contact.html", form=form)
+            return render_template("index.html", form=form)
 
     return render_template("index.html", form=form)
 
