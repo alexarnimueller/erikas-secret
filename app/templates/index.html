@@ -21,7 +21,7 @@
 		<div class="center"><img src="{{ url_for('static', filename='images/logo.gif') }}" alt=""/></div>
 	
 		<div class="center">
-			<table style="width:100%">
+			<table>
 				<tr>
 					<td style="width:350px;">{{ form.name }}</td><td>{{ form.seats }}</td>
 				</tr>
@@ -38,8 +38,7 @@
 				</tr>
 				<tr>
 					<td colspan="6" style="width:100%"><p>Jeweils um 19:00</p></td>
-					<td colspan="2" align="right">
-						<button type="submit" style="width:80px">OK</button>
+					<td colspan="2" align="right">{{ form.submit }}
 					</td>
 				</tr>
 			</table>
