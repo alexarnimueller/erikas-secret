@@ -22,6 +22,6 @@ class ReservationForm(FlaskForm):
     )
     date = RadioField(
         "Datum",
-        choices=[("26.4.", "26.4."), ("27.4.", "27.4."), ("3.5.", "3.5."), ("4.5.", "4.5.")],
+        choices=[("26.4.", "26.4.")],  # , ("27.4.", "27.4."), ("3.5.", "3.5."), ("4.5.", "4.5.")],
     )
     submit = SubmitField("Absenden")
