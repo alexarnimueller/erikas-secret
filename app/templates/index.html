@@ -37,13 +37,14 @@
 					{% for day in form.date %}
 						<td align="left" style="width:110px;">{{ day }} {{ day.label }}</td>
 					{% endfor %}
+					<td align="left" style="width:300px;">Um 19:00</td>
+					<td "width:100px;" align="right">{{ form.submit }}</td>
 				</tr>
 			</table>
 			<table>
 				<tr>
-					<td align="left" style="width:300px;">Jeweils um 19:00</td>
-					<td "width:100px;" align="right">{{ form.submit }}
-					</td>
+					<td align="left" style="width:300px;">Um 19:00</td>
+					<td "width:100px;" align="right">{{ form.submit }}</td>
 				</tr>
 			</table>
 			{% with messages = get_flashed_messages() %}
